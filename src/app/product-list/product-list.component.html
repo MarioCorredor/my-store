@@ -1,6 +1,6 @@
 <h2>Products</h2>
-<div *ngFor="let product of products" [routerLink]="['/products', product.id]">
-    <h3> <a [title]="product.name + ' details'">
+<div *ngFor="let product of products | async" >
+    <h3> <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
             {{ product.name }}
         </a></h3>
     <p *ngIf="product.description">

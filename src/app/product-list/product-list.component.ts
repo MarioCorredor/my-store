@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from '../products';
+import { ProductService } from '../product.service';
+import { Product } from '../products';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -8,11 +10,12 @@ import { products } from '../products';
 })
 export class ProductListComponent implements OnInit {
 
-  products = products;
+  constructor(private productService: ProductService) { }
 
-  constructor() { }
+  products!: Observable<{ id: number, name: string, price: number, description: string; }[]>;
 
   ngOnInit(): void {
+    this.products = this.productService.getProducts();
   }
   share() {
     window.alert('The product has been shared!');

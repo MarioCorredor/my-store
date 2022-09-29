@@ -21,5 +21,4 @@ export class ShippingComponent implements OnInit {
       this.shippingCostsArray = valor;
     })
   }
-
 }
